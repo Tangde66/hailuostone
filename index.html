@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- 已删除错误的COS <base> 标签，图片路径自动指向GitHub仓库根目录 -->
+  <title>海螺石材 - 古利山优质花岗岩供应商</title>
+  <!-- 引入外部资源 -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  
+  <!-- Tailwind配置 -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#C0392B',      // 红色系 - 呼应广信红石材
+            secondary: '#ECF0F1',    // 灰白色系 - 呼应封开花石材
+            accent: '#D6DBDF',       // 浅灰纹理色
+            light: '#F8F9FA',        // 浅色背景
+            dark: '#2C3E50'          // 深色文本
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        },
+      }
+    }
+  </script>
+  
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .content-auto {
+        content-visibility: auto;
+      }
+      .text-shadow {
+        text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+      }
+      .text-shadow-lg {
+        text-shadow: 0 4px 8px rgba(0,0,0,0.7);
+      }
+      .stone-texture {
+        background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%239C92AC' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+      }
+    }
+  </style>
+</head>
+<body class="font-sans text-dark bg-light stone-texture overflow-x-hidden">
+  <!-- 导航栏 -->
+  <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-transparent">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <a href="#" class="flex items-center space-x-2">
+        <i class="fa fa-mountain text-white text-2xl"></i>
+        <span class="text-white font-bold text-xl text-shadow">海螺石材</span>
+      </a>
+      <div class="hidden md:flex space-x-8">
+        <a href="#about" class="text-white hover:text-accent transition-colors text-shadow">关于矿山</a>
+        <a href="#products" class="text-white hover:text-accent transition-colors text-shadow">石材品种</a>
+        <a href="#contact" class="text-white hover:text-accent transition-colors text-shadow">联系我们</a>
+      </div>
+      <button class="md:hidden text-white text-2xl" id="mobileMenuBtn">
+        <i class="fa fa-bars"></i>
+      </button>
+    </div>
+    <!-- 移动端菜单 -->
+    <div id="mobileMenu" class="md:hidden hidden bg-dark/95 backdrop-blur-sm">
+      <div class="container mx-auto px-4 py-4 flex flex-col space-y-4">
+        <a href="#about" class="text-white hover:text-accent py-2 transition-colors">关于矿山</a>
+        <a href="#products" class="text-white hover:text-accent py-2 transition-colors">石材品种</a>
+        <a href="#contact" class="text-white hover:text-accent py-2 transition-colors">联系我们</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 英雄区域 - 矿山背景 -->
+  <header class="h-screen relative flex items-center justify-center overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <img src="./images/mine_hero.jpg" alt="古利山矿山全景" class="w-full h-full object-cover">
+      <div class="absolute inset-0 bg-dark/50"></div>
+    </div>
+    <div class="container mx-auto px-4 z-10 text-center">
+      <h1 class="text-[clamp(2.5rem,8vw,5rem)] font-bold text-white mb-6 opacity-0 transform translate-y-8 transition-all duration-1000" id="heroTitle">
+        海螺石材
+      </h1>
+      <p class="text-[clamp(1.2rem,3vw,1.8rem)] text-white max-w-3xl mx-auto mb-10 opacity-0 transform translate-y-8 transition-all duration-1000 delay-300" id="heroDesc">
+        古利山优质花岗岩，源于自然，精工铸就
+      </p>
+      <a href="#about" class="inline-block bg-primary hover:bg-primary/90 text-white font-medium px-8 py-3 rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 opacity-0 transform translate-y-8 transition-all duration-1000 delay-500" id="heroBtn">
+        了解更多 <i class="fa fa-arrow-down ml-2"></i>
+      </a>
+    </div>
+    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white animate-bounce">
+      <i class="fa fa-angle-double-down text-2xl"></i>
+    </div>
+  </header>
+
+  <!-- 关于矿山部分 -->
+  <section id="about" class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-16 reveal-element">
+          <h2 class="text-[clamp(1.8rem,5vw,3rem)] font-bold text-dark mb-4">古利山饰面花岗岩矿山</h2>
+          <div class="w-20 h-1 bg-primary mx-auto"></div>
+        </div>
+        
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div class="reveal-element">
+            <img src="./images/mine_site.jpg" alt="古利山矿山开采现场" class="w-full h-auto rounded-lg shadow-xl transform hover:scale-[1.02] transition-transform duration-500">
+          </div>
+          
+          <div class="space-y-6 reveal-element">
+            <h3 class="text-2xl font-bold text-primary">得天独厚的矿产资源</h3>
+            <p class="text-lg text-gray-700 leading-relaxed">
+              封开海螺交投绿色建材有限公司旗下的古利山饰面花岗岩矿山，位于"两广门户"广东省肇庆市封开县，地理位置优越，交通便利。矿山已探明优质花岗岩储量超过3亿立方米，年产能达318万立方米荒料，是华南地区重要的花岗岩生产基地。
+            </p>
+            <p class="text-lg text-gray-700 leading-relaxed">
+              古利山矿山依托独特的地质构造，形成了品质稳定、纹理独特的花岗岩资源。公司采用先进的开采技术和设备，结合绿色环保理念，实现资源的高效利用与可持续发展。
+            </p>
+            
+            <div class="grid grid-cols-2 gap-6 mt-8">
+              <div class="bg-light p-6 rounded-lg shadow-md border-l-4 border-primary">
+                <div class="flex items-center mb-3">
+                  <i class="fa fa-certificate text-primary text-xl mr-3"></i>
+                  <h4 class="font-bold text-lg">优质品质</h4>
+                </div>
+                <p class="text-gray-600">严格的品质控制体系，确保每块石材符合高标准</p>
+              </div>
+              
+              <div class="bg-light p-6 rounded-lg shadow-md border-l-4 border-primary">
+                <div class="flex items-center mb-3">
+                  <i class="fa fa-leaf text-primary text-xl mr-3"></i>
+                  <h4 class="font-bold text-lg">绿色开采</h4>
+                </div>
+                <p class="text-gray-600">践行环保理念，实现矿山开发与生态保护协调发展</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 矿山数据统计 -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-20 reveal-element">
+          <div class="bg-primary/5 p-6 text-center rounded-lg transform hover:-translate-y-2 transition-transform duration-300">
+            <div class="text-4xl font-bold text-primary mb-2 counter" data-target="30000">0</div>
+            <p class="text-gray-600">储量(万立方米)</p>
+          </div>
+          
+          <div class="bg-primary/5 p-6 text-center rounded-lg transform hover:-translate-y-2 transition-transform duration-300">
+            <div class="text-4xl font-bold text-primary mb-2 counter" data-target="318">0</div>
+            <p class="text-gray-600">年产荒料(万立方米)</p>
+          </div>
+          
+          <div class="bg-primary/5 p-6 text-center rounded-lg transform hover:-translate-y-2 transition-transform duration-300">
+            <div class="text-4xl font-bold text-primary mb-2 counter" data-target="200">0</div>
+            <p class="text-gray-600">专业团队</p>
+          </div>
+          
+          <div class="bg-primary/5 p-6 text-center rounded-lg transform hover:-translate-y-2 transition-transform duration-300">
+            <div class="text-4xl font-bold text-primary mb-2 counter" data-target="50">0</div>
+            <p class="text-gray-600">合作项目</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 石材品种展示 -->
+  <section id="products" class="py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16 reveal-element">
+        <h2 class="text-[clamp(1.8rem,5vw,3rem)] font-bold text-dark mb-4">海螺石材品种</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto text-lg">古利山矿山出产多种高品质花岗岩，以下两种为核心产品，广泛应用于各类大型工程与装饰项目</p>
+        <div class="w-20 h-1 bg-primary mx-auto mt-4"></div>
+      </div>
+      
+      <!-- 第一种石材：海螺·封开花 -->
+      <div class="max-w-6xl mx-auto mb-24 bg-white rounded-2xl shadow-xl overflow-hidden transform hover:shadow-2xl transition-all duration-500 reveal-element">
+        <div class="grid md:grid-cols-2">
+          <div class="relative h-80 md:h-auto">
+            <img src="./images2/fengkaihua.png" alt="海螺·封开花花岗岩" class="absolute inset-0 w-full h-full object-cover">
+            <div class="absolute top-6 left-6 bg-primary text-white text-sm font-bold px-4 py-1 rounded-full">
+              畅销产品
+            </div>
+          </div>
+          
+          <div class="p-8 md:p-12 flex flex-col justify-center">
+            <h3 class="text-3xl font-bold text-dark mb-2">海螺·封开花</h3>
+            <p class="text-gray-500 mb-6">编号：G4462</p>
+            <p class="text-gray-600 mb-6 text-lg">
+              海螺·封开花是一种高品质灰白色系花岗岩，底色纯净，纹理细腻均匀，整体呈现出简约优雅的视觉效果。其物理性能卓越，结构致密，抗压强度高，耐磨性好，是建筑装饰的理想选择。
+            </p>
+            
+            <div class="space-y-4 mb-8">
+              <div class="flex items-start">
+                <i class="fa fa-check-circle text-primary mt-1 mr-3"></i>
+                <p class="text-gray-700">灰白色系，色调柔和，装饰性强</p>
+              </div>
+              <div class="flex items-start">
+                <i class="fa fa-check-circle text-primary mt-1 mr-3"></i>
+                <p class="text-gray-700">物理性能稳定，耐酸碱、抗风化</p>
+              </div>
+              <div class="flex items-start">
+                <i class="fa fa-check-circle text-primary mt-1 mr-3"></i>
+                <p class="text-gray-700">加工性能好，适用多种工艺处理</p>
+              </div>
+            </div>
+            
+            <h4 class="font-bold text-lg mb-2">主要应用领域：</h4>
+            <div class="flex flex-wrap gap-2">
+              <span class="bg-gray-100 text-gray-800 text-sm px-3 py-1 rounded-full">建筑外墙</span>
+              <span class="bg-gray-100 text-gray-800 text-sm px-3 py-1 rounded-full">室内地面</span>
+              <span class="bg-gray-100 text-gray-800 text-sm px-3 py-1 rounded-full">市政工程</span>
+              <span class="bg-gray-100 text-gray-800 text-sm px-3 py-1 rounded-full">园林景观</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 第二种石材：海螺·广信红 -->
+      <div class="max-w-6xl mx-auto bg-white rounded-2xl shadow-xl overflow-hidden transform hover:shadow-2xl transition-all duration-500 reveal-element">
+        <div class="grid md:grid-cols-2 md:flex-row-reverse">
+          <div class="relative h-80 md:h-auto">
+            <img src="./images/guangxinhong.jpg" alt="海螺·广信红花岗岩" class="absolute inset-0 w-full h-full object-cover">
+            <div class="absolute top-6 left-6 bg-secondary text-dark text-sm font-bold px-4 py-1 rounded-full">
+              特色产品
+            </div>
+          </div>
+          
+          <div class="p-8 md:p-12 flex flex-col justify-center">
+            <h3 class="text-3xl font-bold text-dark mb-4">海螺·广信红</h3>
+            <p class="text-gray-600 mb-6 text-lg">
+              海螺·广信红是一种极具特色的红色系列麻石，底色为温润的红色，带有自然的纹理和斑点，整体呈现出庄重典雅的视觉效果。其材质坚硬，耐磨性强，色泽持久稳定，是高档装饰的首选石材。
+            </p>
+            
+            <div class="space-y-4 mb-8">
+              <div class="flex items-start">
+                <i class="fa fa-check-circle text-primary mt-1 mr-3"></i>
+                <p class="text-gray-700">纯正红色调，纹理自然独特</p>
+              </div>
+              <div class="flex items-start">
+                <i class="fa fa-check-circle text-primary mt-1 mr-3"></i>
+                <p class="text-gray-700">高密度材质，吸水率低，耐久性强</p>
+              </div>
+              <div class="flex items-start">
+                <i class="fa fa-check-circle text-primary mt-1 mr-3"></i>
+                <p class="text-gray-700">抛光后光泽度高，装饰效果出众</p>
+              </div>
+            </div>
+            
+            <h4 class="font-bold text-lg mb-2">主要应用领域：</h4>
+            <div class="flex flex-wrap gap-2">
+              <span class="bg-gray-100 text-gray-800 text-sm px-3 py-1 rounded-full">高档建筑装饰</span>
+              <span class="bg-gray-100 text-gray-800 text-sm px-3 py-1 rounded-full">标志性建筑</span>
+              <span class="bg-gray-100 text-gray-800 text-sm px-3 py-1 rounded-full">广场地面</span>
+              <span class="bg-gray-100 text-gray-800 text-sm px-3 py-1 rounded-full">雕塑工艺品</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 应用案例 -->
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16 reveal-element">
+        <h2 class="text-[clamp(1.8rem,5vw,3rem)] font-bold text-dark mb-4">工程案例展示</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto text-lg">海螺石材已成功应用于众多大型市政工程和重点项目</p>
+        <div class="w-20 h-1 bg-primary mx-auto mt-4"></div>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        <!-- 案例1：珠江新城广场 -->
+        <div class="group relative overflow-hidden rounded-lg shadow-lg reveal-element">
+          <img src="./images/case1.jpg" alt="珠江新城广场" class="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-110">
+          <div class="absolute inset-0 bg-gradient-to-t from-dark/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+            <div class="p-6 text-white">
+              <h3 class="font-bold text-xl mb-2">珠江新城广场</h3>
+              <p class="text-sm opacity-90">采用海螺·封开花，总面积20,000㎡</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 案例2：拱口北岸工程 -->
+        <div class="group relative overflow-hidden rounded-lg shadow-lg reveal-element">
+          <img src="./images/case2.jpg" alt="拱口北岸工程" class="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-110">
+          <div class="absolute inset-0 bg-gradient-to-t from-dark/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+            <div class="p-6 text-white">
+              <h3 class="font-bold text-xl mb-2">拱口北岸工程</h3>
+              <p class="text-sm opacity-90">采用海螺·广信红，总面积12,000㎡</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 案例3：白云机场地面 -->
+        <div class="group relative overflow-hidden rounded-lg shadow-lg reveal-element">
+          <img src="./images/case3.png" alt="白云机场地面" class="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-110">
+          <div class="absolute inset-0 bg-gradient-to-t from-dark/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+            <div class="p-6 text-white">
+              <h3 class="font-bold text-xl mb-2">白云机场地面</h3>
+              <p class="text-sm opacity-90">封开花与广信红搭配使用</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 联系我们 -->
+  <section id="contact" class="py-20 bg-primary/5">
+    <div class="container mx-auto px-4">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-16 reveal-element">
+          <h2 class="text-[clamp(1.8rem,5vw,3rem)] font-bold text-dark mb-4">联系我们</h2>
+          <p class="text-gray-600 max-w-2xl mx-auto text-lg">欢迎咨询海螺石材产品和服务，我们将为您提供专业解决方案</p>
+          <div class="w-20 h-1 bg-primary mx-auto mt-4"></div>
+        </div>
+        
+        <div class="grid md:grid-cols-2 gap-12">
+          <div class="reveal-element">
+            <div class="bg-white p-8 rounded-xl shadow-lg h-full">
+              <h3 class="text-2xl font-bold mb-6">联系方式</h3>
+              
+              <div class="space-y-6">
+                <div class="flex items-start">
+                  <div class="bg-primary/10 p-3 rounded-full mr-4">
+                    <i class="fa fa-map-marker text-primary"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-bold mb-1">公司地址</h4>
+                    <p class="text-gray-600">广东省肇庆市封开县罗董镇罗演村</p>
+                  </div>
+                </div>
+                
+                <div class="flex items-start">
+                  <div class="bg-primary/10 p-3 rounded-full mr-4">
+                    <i class="fa fa-phone text-primary"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-bold mb-1">联系电话</h4>
+                    <p class="text-gray-600">18276639258（华经理）</p>
+                  </div>
+                </div>
+                
+                <div class="flex items-start">
+                  <div class="bg-primary/10 p-3 rounded-full mr-4">
+                    <i class="fa fa-envelope text-primary"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-bold mb-1">电子邮箱</h4>
+                    <p class="text-gray-600">1649317804@qq.com</p>
+                  </div>
+                </div>
+                
+                <div class="flex items-start">
+                  <div class="bg-primary/10 p-3 rounded-full mr-4">
+                    <i class="fa fa-clock-o text-primary"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-bold mb-1">工作时间</h4>
+                    <p class="text-gray-600">周一至周五: 8:00 - 18:00</p>
+                    <p class="text-gray-600">周六: 9:00 - 16:00（节假日除外）</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="mt-8">
+                <h4 class="font-bold mb-4">关注我们</h4>
+                <div class="flex space-x-4">
+                  <a href="#" class="bg-primary text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-primary/80 transition-colors">
+                    <i class="fa fa-weixin"></i>
+                  </a>
+                  <a href="#" class="bg-primary text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-primary/80 transition-colors">
+                    <i class="fa fa-weibo"></i>
+                  </a>
+                  <a href="#" class="bg-primary text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-primary/80 transition-colors">
+                    <i class="fa fa-qq"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="reveal-element">
+            <div class="bg-white p-8 rounded-xl shadow-lg h-full">
+              <h3 class="text-2xl font-bold mb-6">发送询价</h3>
+              
+              <form>
+                <div class="mb-4">
+                  <label for="name" class="block text-gray-700 mb-2">您的姓名</label>
+                  <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-colors" placeholder="请输入您的姓名">
+                </div>
+                
+                <div class="mb-4">
+                  <label for="phone" class="block text-gray-700 mb-2">联系电话</label>
+                  <input type="tel" id="phone" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-colors" placeholder="请输入您的联系电话">
+                </div>
+                
+                <div class="mb-4">
+                  <label for="email" class="block text-gray-700 mb-2">电子邮箱</label>
+                  <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-colors" placeholder="请输入您的电子邮箱">
+                </div>
+                
+                <div class="mb-4">
+                  <label for="product" class="block text-gray-700 mb-2">感兴趣的产品</label>
+                  <select id="product" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-colors">
+                    <option value="">请选择产品</option>
+                    <option value="封开花">海螺·封开花（G4462）</option>
+                    <option value="广信红">海螺·广信红</option>
+                    <option value="其他">其他咨询</option>
+                  </select>
+                </div>
+                
+                <div class="mb-6">
+                  <label for="message" class="block text-gray-700 mb-2">留言内容</label>
+                  <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-colors" placeholder="请输入您的需求或问题"></textarea>
+                </div>
+                
+                <button type="button" class="w-full bg-primary hover:bg-primary/90 text-white font-medium py-3 px-4 rounded-lg shadow transition-colors flex items-center justify-center">
+                  <i class="fa fa-paper-plane mr-2"></i> 发送询价
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 页脚 -->
+  <footer class="bg-dark text-white py-12">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+          <div class="flex items-center space-x-2 mb-4">
+            <i class="fa fa-mountain text-primary text-xl"></i>
+            <span class="font-bold text-xl">海螺石材</span>
+          </div>
+          <p class="text-gray-400 mb-4">
+            封开海螺交投绿色建材有限公司，依托古利山优质矿山资源，为客户提供高品质花岗岩产品与服务。
+          </p>
+          <div class="flex space-x-4">
+            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+              <i class="fa fa-weixin"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+              <i class="fa fa-weibo"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+              <i class="fa fa-qq"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div>
+          <h4 class="font-bold text-lg mb-4">快速链接</h4>
+          <ul class="space-y-2">
+            <li><a href="#about" class="text-gray-400 hover:text-white transition-colors">关于矿山</a></li>
+            <li><a href="#products" class="text-gray-400 hover:text-white transition-colors">石材品种</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">加工工艺</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">工程案例</a></li>
+            <li><a href="#contact" class="text-gray-400 hover:text-white transition-colors">联系我们</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="font-bold text-lg mb-4">产品中心</h4>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">海螺·封开花（G4462）</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">海螺·广信红</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">定制加工服务</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">工程解决方案</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="font-bold text-lg mb-4">联系方式</h4>
+          <ul class="space-y-2">
+            <li class="flex items-start">
+              <i class="fa fa-map-marker text-primary mt-1 mr-3"></i>
+              <span class="text-gray-400">广东省肇庆市封开县罗董镇罗演村</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fa fa-phone text-primary mt-1 mr-3"></i>
+              <span class="text-gray-400">18276639258（华经理）</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fa fa-envelope text-primary mt-1 mr-3"></i>
+              <span class="text-gray-400">1649317804@qq.com</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="border-t border-gray-800 mt-10 pt-6 text-center text-gray-500 text-sm">
+        <p>&copy; 封开海螺交投绿色建材有限公司 版权所有</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 返回顶部按钮 -->
+  <button id="backToTop" class="fixed bottom-8 right-8 bg-primary text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center opacity-0 invisible transition-all duration-300 hover:bg-primary/90">
+    <i class="fa fa-arrow-up"></i>
+  </button>
+
+  <script>
+    // 导航栏滚动效果
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) {
+        navbar.classList.add('bg-dark/90', 'backdrop-blur-sm', 'shadow-md');
+        navbar.classList.remove('bg-transparent');
+      } else {
+        navbar.classList.add('bg-transparent');
+        navbar.classList.remove('bg-dark/90', 'backdrop-blur-sm', 'shadow-md');
+      }
+    });
+
+    // 移动端菜单
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+      if (mobileMenu.classList.contains('hidden')) {
+        mobileMenuBtn.innerHTML = '<i class="fa fa-bars"></i>';
+      } else {
+        mobileMenuBtn.innerHTML = '<i class="fa fa-times"></i>';
+      }
+    });
+
+    // 平滑滚动
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        
+        // 关闭移动菜单（如果打开）
+        if (!mobileMenu.classList.contains('hidden')) {
+          mobileMenu.classList.add('hidden');
+          mobileMenuBtn.innerHTML = '<i class="fa fa-bars"></i>';
+        }
+        
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    // 英雄区域动画
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.getElementById('heroTitle').classList.remove('opacity-0', 'translate-y-8');
+      }, 300);
+      
+      setTimeout(() => {
+        document.getElementById('heroDesc').classList.remove('opacity-0', 'translate-y-8');
+      }, 600);
+      
+      setTimeout(() => {
+        document.getElementById('heroBtn').classList.remove('opacity-0', 'translate-y-8');
+      }, 900);
+    });
+
+    // 滚动显示动画
+    const revealElements = document.querySelectorAll('.reveal-element');
+    
+    function checkReveal() {
+      const windowHeight = window.innerHeight;
+      const revealPoint = 150;
+      
+      revealElements.forEach(element => {
+        const revealTop = element.getBoundingClientRect().top;
+        
+        if (revealTop < windowHeight - revealPoint) {
+          element.classList.add('opacity-100', 'translate-y-0');
+          element.classList.remove('opacity-0', 'translate-y-10');
+        }
+      });
+    }
+    
+    // 初始设置
+    revealElements.forEach(element => {
+      element.classList.add('opacity-0', 'translate-y-10', 'transition-all', 'duration-700');
+    });
+    
+    // 页面加载和滚动时检查
+    window.addEventListener('load', checkReveal);
+    window.addEventListener('scroll', checkReveal);
+
+    // 数字计数动画
+    const counters = document.querySelectorAll('.counter');
+    const speed = 200;
+    
+    function startCounting() {
+      counters.forEach(counter => {
+        const target = +counter.getAttribute('data-target');
+        const count = +counter.innerText;
+        const increment = target / speed;
+        
+        if (count < target) {
+          counter.innerText = Math.ceil(count + increment);
+          setTimeout(startCounting, 1);
+        } else {
+          counter.innerText = target;
+        }
+      });
+    }
+    
+    // 当计数器元素进入视图时开始计数
+    const observerOptions = {
+      threshold: 0.5
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          startCounting();
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+    
+    if (counters.length > 0) {
+      observer.observe(counters[0].parentElement.parentElement);
+    }
+
+    // 返回顶部按钮
+    const backToTopBtn = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 500) {
+        backToTopBtn.classList.remove('opacity-0', 'invisible');
+        backToTopBtn.classList.add('opacity-100', 'visible');
+      } else {
+        backToTopBtn.classList.add('opacity-0', 'invisible');
+        backToTopBtn.classList.remove('opacity-100', 'visible');
+      }
+    });
+    
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  </script>
+</body>
+</html>
